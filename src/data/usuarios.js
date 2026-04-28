@@ -1,12 +1,12 @@
 export const usuarios = [
-  { id_usuario: 1, nombre: "Carlos Mendoza", correo: "carlos.mendoza@edificio.com", contrasena: "admin123", rol: "administrador" },
-  { id_usuario: 2, nombre: "Laura Gomez", correo: "laura.gomez@edificio.com", contrasena: "guard123", rol: "guardia" },
-  { id_usuario: 3, nombre: "Pedro Ramirez", correo: "pedro.ramirez@techcorp.com", contrasena: "emp123", rol: "empleado" },
-  { id_usuario: 4, nombre: "Ana Torres", correo: "ana.torres@innovasoft.com", contrasena: "emp123", rol: "empleado" },
-  { id_usuario: 5, nombre: "Miguel Lopez", correo: "miguel.lopez@edificio.com", contrasena: "guard123", rol: "guardia" },
-  { id_usuario: 6, nombre: "Sofia Castro", correo: "sofia.castro@dataplus.com", contrasena: "emp123", rol: "empleado" },
-  { id_usuario: 7, nombre: "Diego Herrera", correo: "diego.herrera@techcorp.com", contrasena: "emp123", rol: "empleado" },
-  { id_usuario: 8, nombre: "Maria Fernandez", correo: "maria.fernandez@edificio.com", contrasena: "admin123", rol: "administrador" },
+  { id_usuario: 1, nombre: "Jhon Edison Bedoya Olarte", correo: "jhon.bedoya@edificio.com", contrasena: "admin123", rol: "administrador" },
+  { id_usuario: 2, nombre: "Ronald Cortes Delgado", correo: "ronald.cortes@edificio.com", contrasena: "guard123", rol: "guardia" },
+  { id_usuario: 3, nombre: "William Andres Dussan Gonzalez", correo: "william.dussan@techcorp.com", contrasena: "emp123", rol: "empleado" },
+  { id_usuario: 4, nombre: "Juan Andres Leguizamon Suaza", correo: "juan.leguizamon@innovasoft.com", contrasena: "emp123", rol: "empleado" },
+  { id_usuario: 5, nombre: "Ronald Cortes", correo: "ronald.cortes2@edificio.com", contrasena: "guard123", rol: "guardia" },
+  { id_usuario: 6, nombre: "William Dussan", correo: "william.dussan@dataplus.com", contrasena: "emp123", rol: "empleado" },
+  { id_usuario: 7, nombre: "Juan Leguizamon", correo: "juan.leguizamon@techcorp.com", contrasena: "emp123", rol: "empleado" },
+  { id_usuario: 8, nombre: "Jhon Bedoya", correo: "jhon.bedoya2@edificio.com", contrasena: "admin123", rol: "administrador" },
 ];
 
 export const administradores = [
