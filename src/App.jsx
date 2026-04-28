@@ -10,10 +10,15 @@ import Empleados from './pages/Empleados';
 
 export default function App() {
   const [usuario, setUsuario] = useState(null);
+  const [loginHistory, setLoginHistory] = useState([]);
   const navigate = useNavigate();
 
   const handleLogin = (user) => {
     setUsuario(user);
+    setLoginHistory((prev) => [
+      { id_usuario: user.id_usuario, nombre: user.nombre, rol: user.rol, fecha_hora: new Date().toLocaleString() },
+      ...prev,
+    ]);
     navigate('/dashboard');
   };
 
@@ -31,7 +36,7 @@ export default function App() {
       <Sidebar usuario={usuario} onLogout={handleLogout} />
       <main className="main-content">
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard loginHistory={loginHistory} />} />
           <Route path="/accesos" element={<Accesos />} />
           <Route path="/dispositivos" element={<Dispositivos />} />
           <Route path="/empresas" element={<Empresas />} />

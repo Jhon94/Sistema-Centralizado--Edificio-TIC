@@ -59,17 +59,21 @@ export default function Login({ onLogin }) {
         <div className="login-demo">
           <p><strong>Usuarios de prueba:</strong></p>
           <div className="demo-users">
-            <div className="demo-user" onClick={() => { setCorreo('carlos.mendoza@edificio.com'); setContrasena('admin123'); }}>
+            <div className="demo-user" onClick={() => { setCorreo('jhon.bedoya@edificio.com'); setContrasena('admin123'); }}>
               <span className="demo-role">Admin</span>
-              <span>carlos.mendoza@edificio.com</span>
+              <span>jhon.bedoya@edificio.com — Jhon Edison Bedoya</span>
             </div>
-            <div className="demo-user" onClick={() => { setCorreo('laura.gomez@edificio.com'); setContrasena('guard123'); }}>
+            <div className="demo-user" onClick={() => { setCorreo('ronald.cortes@edificio.com'); setContrasena('guard123'); }}>
               <span className="demo-role">Guardia</span>
-              <span>laura.gomez@edificio.com</span>
+              <span>ronald.cortes@edificio.com — Ronald Cortes</span>
             </div>
-            <div className="demo-user" onClick={() => { setCorreo('pedro.ramirez@techcorp.com'); setContrasena('emp123'); }}>
+            <div className="demo-user" onClick={() => { setCorreo('william.dussan@techcorp.com'); setContrasena('emp123'); }}>
               <span className="demo-role">Empleado</span>
-              <span>pedro.ramirez@techcorp.com</span>
+              <span>william.dussan@techcorp.com — William Dussan</span>
+            </div>
+            <div className="demo-user" onClick={() => { setCorreo('juan.leguizamon@innovasoft.com'); setContrasena('emp123'); }}>
+              <span className="demo-role">Empleado</span>
+              <span>juan.leguizamon@innovasoft.com — Juan Leguizamon</span>
             </div>
           </div>
         </div>

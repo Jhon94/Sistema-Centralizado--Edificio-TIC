@@ -4,7 +4,7 @@ import { empresas } from '../data/empresas';
 import { empleados } from '../data/usuarios';
 import { registrosAcceso } from '../data/accesos';
 
-export default function Dashboard() {
+export default function Dashboard({ loginHistory = [] }) {
   const activos = dispositivos.filter((d) => d.estado === 'ACTIVO').length;
   const inactivos = dispositivos.filter((d) => d.estado === 'INACTIVO').length;
   const accesosHoy = registrosAcceso.filter((r) => r.fecha_hora.startsWith('2026-04-25')).length;
@@ -17,6 +17,7 @@ export default function Dashboard() {
     { label: 'Dispositivos Inactivos', valor: inactivos, color: '#ef4444' },
     { label: 'Accesos Hoy', valor: accesosHoy, color: '#f59e0b' },
     { label: 'Accesos Fallidos', valor: accesosFallidos, color: '#ef4444' },
+    { label: 'Inicios de Sesion', valor: loginHistory.length, color: '#06b6d4' },
   ];
 
   const ultimosAccesos = registrosAcceso
@@ -35,6 +36,34 @@ export default function Dashboard() {
           </div>
         ))}
       </div>
+
+      {loginHistory.length > 0 && (
+        <div className="section-card" style={{ marginBottom: 20 }}>
+          <h3>Historial de Inicios de Sesion</h3>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Usuario</th>
+                <th>Rol</th>
+                <th>Fecha/Hora</th>
+              </tr>
+            </thead>
+            <tbody>
+              {loginHistory.map((log, i) => (
+                <tr key={i}>
+                  <td>{loginHistory.length - i}</td>
+                  <td>{log.nombre}</td>
+                  <td>
+                    <span className="badge badge-info">{log.rol.toUpperCase()}</span>
+                  </td>
+                  <td>{log.fecha_hora}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       <div className="dashboard-sections">
         <div className="section-card">
