@@ -38,31 +38,54 @@ export default function Dashboard({ loginHistory = [] }) {
       </div>
 
       {loginHistory.length > 0 && (
-        <div className="section-card" style={{ marginBottom: 20 }}>
-          <h3>Historial de Inicios de Sesion</h3>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Usuario</th>
-                <th>Rol</th>
-                <th>Fecha/Hora</th>
-              </tr>
-            </thead>
-            <tbody>
-              {loginHistory.map((log, i) => (
-                <tr key={i}>
-                  <td>{loginHistory.length - i}</td>
-                  <td>{log.nombre}</td>
-                  <td>
-                    <span className="badge badge-info">{log.rol.toUpperCase()}</span>
-                  </td>
-                  <td>{log.fecha_hora}</td>
-                </tr>
+        <>
+          <div className="section-card" style={{ marginBottom: 20 }}>
+            <h3>Logueos por Usuario</h3>
+            <div className="stats-grid">
+              {Object.values(
+                loginHistory.reduce((acc, log) => {
+                  if (!acc[log.id_usuario]) {
+                    acc[log.id_usuario] = { nombre: log.nombre, rol: log.rol, count: 0 };
+                  }
+                  acc[log.id_usuario].count++;
+                  return acc;
+                }, {})
+              ).map((user, i) => (
+                <div key={i} className="stat-card" style={{ borderTopColor: '#06b6d4' }}>
+                  <span className="stat-valor" style={{ color: '#06b6d4' }}>{user.count}</span>
+                  <span className="stat-label">{user.nombre}</span>
+                  <span className="badge badge-info" style={{ marginTop: 4 }}>{user.rol.toUpperCase()}</span>
+                </div>
               ))}
-            </tbody>
-          </table>
-        </div>
+            </div>
+          </div>
+
+          <div className="section-card" style={{ marginBottom: 20 }}>
+            <h3>Historial de Inicios de Sesion</h3>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Usuario</th>
+                  <th>Rol</th>
+                  <th>Fecha/Hora</th>
+                </tr>
+              </thead>
+              <tbody>
+                {loginHistory.map((log, i) => (
+                  <tr key={i}>
+                    <td>{loginHistory.length - i}</td>
+                    <td>{log.nombre}</td>
+                    <td>
+                      <span className="badge badge-info">{log.rol.toUpperCase()}</span>
+                    </td>
+                    <td>{log.fecha_hora}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
       )}
 
       <div className="dashboard-sections">

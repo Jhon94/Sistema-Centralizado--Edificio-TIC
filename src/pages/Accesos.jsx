@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import Header from '../components/Header';
-import { registrosAcceso, accesos } from '../data/accesos';
-import { usuarios } from '../data/usuarios';
-import { dispositivos } from '../data/dispositivos';
 
-export default function Accesos() {
+export default function Accesos({ registros, accesos, usuarios, dispositivos }) {
   const [filtroResultado, setFiltroResultado] = useState('TODOS');
 
-  const registrosEnriquecidos = registrosAcceso.map((reg) => {
-    const usuario = usuarios.find((u) => u.id_usuario === reg.id_usuario);
+  const registrosEnriquecidos = registros.map((reg) => {
+    const usuarioReg = usuarios.find((u) => u.id_usuario === reg.id_usuario);
     const acceso = accesos.find((a) => a.id_acceso === reg.id_acceso);
     const dispositivo = dispositivos.find((d) => d.id === reg.id_dispositivo);
-    return { ...reg, usuario, acceso, dispositivo };
+    return { ...reg, usuario: usuarioReg, acceso, dispositivo };
   });
 
   const registrosFiltrados = filtroResultado === 'TODOS'
